@@ -9,7 +9,7 @@
         "project-team": "Project team",
         "john-doe": "John Doe",
         "jane-doe": "Jane Doe",
-        "johnny-doe": "Johnny Doe",
+        "stella-lye-si-yu": "Stella Lye Si Yu",
         "jean-doe": "Jean Doe",
         "toh-li-heng": "Toh Li Heng"
       },
@@ -132,6 +132,14 @@
       "title": "",
       "headings": {
         "addressbook-level-3": "AddressBook Level-3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/STELLA-LYE.md",
+      "title": "Stella's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },
