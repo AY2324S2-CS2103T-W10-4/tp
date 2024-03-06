@@ -8,7 +8,7 @@
         "about-us": "About Us",
         "project-team": "Project team",
         "doye-lee": "Doye Lee",
-        "jane-doe": "Jane Doe",
+        "soh-kia-hwee-jocelyn": "Soh Kia Hwee Jocelyn",
         "stella-lye-si-yu": "Stella Lye Si Yu",
         "toh-li-heng": "Toh Li Heng"
       },
@@ -143,8 +143,8 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
+      "src": "team/jocelyn-soh.md",
+      "title": "Jocelyn's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
