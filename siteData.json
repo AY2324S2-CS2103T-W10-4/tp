@@ -69,7 +69,9 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-person": "Deleting a person",
+        "listing-all-students": "Listing all students",
+        "deleting-a-student": "Deleting a student",
+        "finding-student-s-by-keyword-s": "Finding student(s) by keyword(s)",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
