@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,9 +25,9 @@ public class MailCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " LAB10 TUT04";
 
-    public static final String MESSAGE_NO_PERSON = "Group: %s does not contain any student";
+    public static final String MESSAGE_NO_PERSON = "Group: %s does not contain any student.";
 
-    public static final String SHOW_MAILTO_LINK = "Showing the Email window";
+    public static final String SHOW_MAILTO_LINK = "Showing the Email window.";
 
     private final Group group;
 
@@ -48,15 +49,15 @@ public class MailCommand extends Command {
         ReadOnlyAddressBook addressBook = model.getAddressBook();
         List<Person> personList = addressBook.getPersonList();
 
+        if (!groupIsNotEmpty(model, group)) {
+            throw new CommandException(String.format(MESSAGE_NO_PERSON, group));
+        }
+
         List<Person> filteredPersonList = new ArrayList<>();
         for (Person person : personList) {
             if (person.hasGroup(group)) {
                 filteredPersonList.add(person);
             }
-        }
-
-        if (filteredPersonList.size() == 0) {
-            throw new CommandException(String.format(MESSAGE_NO_PERSON, group));
         }
 
         // Extract email addresses of filtered students
@@ -84,5 +85,43 @@ public class MailCommand extends Command {
 
         MailCommand otherMailCommand = (MailCommand) other;
         return group.equals(otherMailCommand.group);
+    }
+
+    /**
+     * Generates a mailto link
+     * @param recipient The recipient of the email
+     * @param subject The subject of the email
+     * @param body The body of the email
+     * @return A mailto link
+     */
+    protected String createMailtoUrl(String recipient, String subject, String body) {
+        try {
+            String uri = "mailto:" + recipient
+                    + "?subject="
+                    + URLEncoder.encode(subject, "UTF-8").replace("+", "%20")
+                    + "&body=" + URLEncoder.encode(body, "UTF-8").replace("+", "%20");
+            return uri;
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create mailto URL", e);
+        }
+    }
+
+    /**
+     * Checks if the group contains at least one person
+     * @param model The AddressBook model
+     * @param group The group to be checked
+     * @return boolean value
+     */
+    protected boolean groupIsNotEmpty(Model model, Group group) {
+        ReadOnlyAddressBook addressBook = model.getAddressBook();
+        List<Person> personList = addressBook.getPersonList();
+
+        for (Person person : personList) {
+            if (person.hasGroup(group)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

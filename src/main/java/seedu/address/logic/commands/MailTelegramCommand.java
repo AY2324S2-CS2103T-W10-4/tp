@@ -2,21 +2,20 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.net.URLEncoder;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.group.Group;
-import seedu.address.model.group.GroupContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 
 /**
  * Directs users to the HTML website with email links to all the students in the current list.
  */
-public class MailTelegramCommand extends Command {
+public class MailTelegramCommand extends MailCommand {
 
     public static final String COMMAND_WORD = "mailtg";
 
@@ -25,17 +24,19 @@ public class MailTelegramCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " LAB10 TUT04";
 
+    public static final String MESSAGE_NO_GROUP_LINK = "Group %s does not contain a Telegram link.\n"
+            + "Please add a link first using the " + EditGroupCommand.COMMAND_WORD + " command.";
+
     public static final String SHOW_MAILTO_LINK = "Showing the email window";
 
-    private final GroupContainsKeywordsPredicate predicate;
     private final Group group;
 
     /**
      * Constructs a MailCommand with a predicate.
      */
     public MailTelegramCommand(Group group) {
+        super(group);
         this.group = group;
-        this.predicate = new GroupContainsKeywordsPredicate(Arrays.asList(group.groupName));
     }
 
     /**
@@ -43,26 +44,41 @@ public class MailTelegramCommand extends Command {
      * Shows a pop-up window containing the mailto link
      */
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
         ReadOnlyAddressBook addressBook = model.getAddressBook();
-        List<Person> personList = addressBook.getPersonList().filtered(predicate);
-        List<Group> groupList = addressBook.getGroupList();
+
+        if (!groupIsNotEmpty(model, group)) {
+            throw new CommandException(String.format(MESSAGE_NO_PERSON, group));
+        }
+
+        List<Person> personList = addressBook.getPersonList();
+        List<Person> filteredPersonList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person.hasGroup(group)) {
+                filteredPersonList.add(person);
+            }
+        }
 
         // Extract email addresses of filtered students
-        List<String> emailList = personList.stream()
+        List<String> emailList = filteredPersonList.stream()
                 .map(Person::getEmail)
                 .filter(email -> !email.value.isEmpty())
                 .map(email -> email.value)
                 .collect(Collectors.toList());
 
         String telegramLink = "";
+        List<Group> groupList = addressBook.getGroupList();
         for (Group curr : groupList) {
             if (curr.isSameGroup(this.group)) {
                 telegramLink = curr.telegramLink;
                 break;
             }
+        }
+
+        if (telegramLink == "") {
+            throw new CommandException(String.format(MESSAGE_NO_GROUP_LINK, group));
         }
 
         String mailtoLink = createMailtoUrl(String.join(";", emailList),
@@ -71,28 +87,7 @@ public class MailTelegramCommand extends Command {
                     + String.format("Please join this Telegram group: %s.\n\n", telegramLink)
                     + String.format("Sent from TutorsContactPro."));
 
-        System.out.println(mailtoLink);
-
         return new CommandResult(SHOW_MAILTO_LINK, mailtoLink);
-    }
-
-    /**
-     * Generates a mailto link
-     * @param recipient The recipient of the email
-     * @param subject The subject of the email
-     * @param body The body of the email
-     * @return A mailto link
-     */
-    public String createMailtoUrl(String recipient, String subject, String body) {
-        try {
-            String uri = "mailto:" + recipient
-                    + "?subject="
-                    + URLEncoder.encode(subject, "UTF-8").replace("+", "%20")
-                    + "&body=" + URLEncoder.encode(body, "UTF-8").replace("+", "%20");
-            return uri;
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to create mailto URL", e);
-        }
     }
 
     @Override
