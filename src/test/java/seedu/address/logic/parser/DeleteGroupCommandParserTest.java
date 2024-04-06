@@ -15,7 +15,7 @@ public class DeleteGroupCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteGroupCommand() {
-        assertParseSuccess(parser, " g/TUT04", new DeleteGroupCommand(new Group(VALID_GROUP_TUTORIAL)));
+        assertParseSuccess(parser, " grp/TUT04", new DeleteGroupCommand(new Group(VALID_GROUP_TUTORIAL)));
     }
 
     @Test

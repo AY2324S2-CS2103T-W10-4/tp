@@ -149,7 +149,7 @@ public class ParserUtil {
         requireNonNull(group);
         String trimmedGroup = group.trim();
         if (!Group.isValidGroupName(trimmedGroup)) {
-            throw new ParseException(Group.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
         }
         return new Group(trimmedGroup);
     }
@@ -176,7 +176,7 @@ public class ParserUtil {
         requireNonNull(link);
         String trimmedGroup = link.trim();
         if (!Group.isValidLink(trimmedGroup)) {
-            throw new ParseException(Group.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Group.MESSAGE_GROUP_LINK_CONSTRAINTS);
         }
         return link;
     }

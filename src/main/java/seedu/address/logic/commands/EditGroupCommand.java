@@ -32,6 +32,7 @@ public class EditGroupCommand extends Command {
      */
     public EditGroupCommand(Group group, String link) {
         requireNonNull(group);
+        System.out.println(link);
         this.toEdit = group;
         this.link = link;
     }

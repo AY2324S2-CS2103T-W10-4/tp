@@ -16,14 +16,14 @@ public class EditGroupCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsEditGroupCommand() {
-        assertParseSuccess(parser, " g/TUT04 tg/https://t.me/abcdefg",
-                new EditGroupCommand(new Group(VALID_GROUP_TUTORIAL), VALID_TELEGRAM_LINK));
+        assertParseSuccess(parser, " grp/TUT04 tg/https://t.me/abcdefg",
+                new EditGroupCommand(new Group(VALID_GROUP_TUTORIAL, "https://t.me/abcdefg"), VALID_TELEGRAM_LINK));
     }
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
-        assertParseFailure(parser, " g/abcd tg/https://t.me/abcdef", Group.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, " g/TUT01 tg/www.google.com", Group.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, " grp/abcd tg/https://t.me/abcdef", Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
+        assertParseFailure(parser, " grp/TUT01 tg/www.google.com", Group.MESSAGE_GROUP_LINK_CONSTRAINTS);
         assertParseFailure(parser, " a",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditGroupCommand.MESSAGE_USAGE));
     }

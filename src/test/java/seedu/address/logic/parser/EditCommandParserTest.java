@@ -91,16 +91,19 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_MAJOR_DESC, Major.MESSAGE_CONSTRAINTS); // invalid major
-        assertParseFailure(parser, "1" + INVALID_GROUP_DESC, Group.MESSAGE_CONSTRAINTS); // invalid group
+        assertParseFailure(parser, "1" + INVALID_GROUP_DESC, Group.MESSAGE_GROUP_NAME_CONSTRAINTS); // invalid group
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_AMY, Phone.MESSAGE_CONSTRAINTS);
 
         // while parsing {@code PREFIX_GROUP} alone will reset the group of the {@code Person} being edited,
         // parsing it together with a valid group results in error
-        assertParseFailure(parser, "1" + GROUP_DESC_TUTORIAL + GROUP_DESC_LAB + GROUP_EMPTY, Group.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + GROUP_DESC_TUTORIAL + GROUP_EMPTY + GROUP_DESC_LAB, Group.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + GROUP_EMPTY + GROUP_DESC_TUTORIAL + GROUP_DESC_LAB, Group.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + GROUP_DESC_TUTORIAL + GROUP_DESC_LAB + GROUP_EMPTY,
+                Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
+        assertParseFailure(parser, "1" + GROUP_DESC_TUTORIAL + GROUP_EMPTY + GROUP_DESC_LAB,
+                Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
+        assertParseFailure(parser, "1" + GROUP_EMPTY + GROUP_DESC_TUTORIAL + GROUP_DESC_LAB,
+                Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_MAJOR_AMY + VALID_PHONE_AMY,

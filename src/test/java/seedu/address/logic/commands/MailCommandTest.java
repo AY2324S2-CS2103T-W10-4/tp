@@ -1,23 +1,15 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.TypicalAddressBook.getTypicalAddressBook;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.group.GroupContainsKeywordsPredicate;
-import seedu.address.model.person.Person;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.model.group.Group;
 
 public class MailCommandTest {
 
@@ -26,19 +18,17 @@ public class MailCommandTest {
 
     @Test
     public void equals() {
-        GroupContainsKeywordsPredicate firstPredicate =
-                new GroupContainsKeywordsPredicate(Collections.singletonList("TUT01"));
-        GroupContainsKeywordsPredicate secondPredicate =
-                new GroupContainsKeywordsPredicate(Collections.singletonList("TUT02"));
+        Group firstGroup = new Group("TUT01");
+        Group secondGroup = new Group("TUT02");
 
-        MailCommand findFirstCommand = new MailCommand(firstPredicate);
-        MailCommand findSecondCommand = new MailCommand(secondPredicate);
+        MailCommand findFirstCommand = new MailCommand(firstGroup);
+        MailCommand findSecondCommand = new MailCommand(secondGroup);
 
         // same object -> returns true
         assertTrue(findFirstCommand.equals(findFirstCommand));
 
         // same values -> returns true
-        MailCommand findFirstCommandCopy = new MailCommand(firstPredicate);
+        MailCommand findFirstCommandCopy = new MailCommand(firstGroup);
         assertTrue(findFirstCommand.equals(findFirstCommandCopy));
 
         // different types -> returns false
@@ -51,37 +41,4 @@ public class MailCommandTest {
         assertFalse(findFirstCommand.equals(findSecondCommand));
     }
 
-    @Test
-    public void execute_noPredicate_success() {
-        Model model = new ModelManager();
-        MailCommand mailCommand = new MailCommand();
-        CommandResult commandResult = mailCommand.execute(model);
-        assertEquals(MailCommand.SHOW_MAILTO_LINK, commandResult.getFeedbackToUser());
-    }
-
-
-    @Test
-    public void execute_withMultiplePredicate_success() {
-        Model model = new ModelManager();
-        List<Person> personList = Arrays.asList(
-                new PersonBuilder().withName("Alice").withEmail("test1@example.com").build(),
-                new PersonBuilder().withName("Bob").withEmail("test2@example.com").build()
-        );
-        model.addPerson(personList.get(0));
-        model.addPerson(personList.get(1));
-
-        GroupContainsKeywordsPredicate predicate = new GroupContainsKeywordsPredicate(Arrays.asList("TUT01"));
-        model.updateFilteredPersonList(predicate);
-
-        MailCommand mailCommand = new MailCommand(predicate);
-        CommandResult commandResult = mailCommand.execute(model);
-
-        // Extract emails from personList filtered by the predicate
-        List<String> emails = personList.stream()
-                .filter(person -> predicate.test(person))
-                .map(person -> person.getEmail().toString())
-                .collect(Collectors.toList());
-
-        assertEquals(MailCommand.SHOW_MAILTO_LINK, commandResult.getFeedbackToUser());
-    }
 }

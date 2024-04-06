@@ -72,21 +72,21 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_addGroup() throws Exception {
         AddGroupCommand command = (AddGroupCommand) parser.parseCommand(AddGroupCommand.COMMAND_WORD + " "
-                + "g/TUT01");
+                + "grp/TUT01");
         assertEquals(new AddGroupCommand(new Group("TUT01")), command);
     }
 
     @Test
     public void parseCommand_deleteGroup() throws Exception {
         DeleteGroupCommand command = (DeleteGroupCommand) parser.parseCommand(DeleteGroupCommand.COMMAND_WORD + " "
-                + "g/TUT01");
+                + "grp/TUT01");
         assertEquals(new DeleteGroupCommand(new Group("TUT01")), command);
     }
 
     @Test
     public void parseCommand_editGroup() throws Exception {
         EditGroupCommand command = (EditGroupCommand) parser.parseCommand(EditGroupCommand.COMMAND_WORD + " "
-                + "g/TUT01 tg/https://t.me/abcdefg");
+                + "grp/TUT01 tg/https://t.me/abcdefg");
         assertEquals(new EditGroupCommand(new Group("TUT01"), "https://t.me/abcdefg"), command);
     }
 
@@ -127,10 +127,9 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_mail() throws Exception {
-        List<String> keywords = Arrays.asList("TUT01", "LAB02", "REC03");
-        MailCommand command = (MailCommand) parser.parseCommand(
-                MailCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new MailCommand(new GroupContainsKeywordsPredicate(keywords)), command);
+        List<String> keywords = Arrays.asList("TUT01");
+        MailCommand command = (MailCommand) parser.parseCommand(MailCommand.COMMAND_WORD + " grp/TUT01");
+        assertEquals(new MailCommand(new Group("TUT01")), command);
     }
 
     @Test

@@ -12,8 +12,9 @@ import java.util.List;
  */
 public class Group {
 
-    public static final String MESSAGE_CONSTRAINTS = "Groups names should be in correct format with 2 digit number. "
-        + "E.g. g/TUT04, g/LAB10, g/REC09. Link should be a valid Telegram invite link.";
+    public static final String MESSAGE_GROUP_NAME_CONSTRAINTS = "Groups names should be in correct format "
+            + "with 2 digit number. E.g. TUT04, LAB10, REC09.";
+    public static final String MESSAGE_GROUP_LINK_CONSTRAINTS = "Link should be a valid Telegram invite link.";
     public static final String WEEK_MESSAGE_CONSTRAINTS = "Week number should be 2 digit integer. ";
     public static final String ATTENDANCE_MESSAGE_CONSTRAINTS = "Attendance should be A or P. ";
     public static final String MESSAGE_CONSTRAINTS_KEYWORD = "Groups names should be in correct format "
@@ -22,7 +23,7 @@ public class Group {
 
     public static final String MESSAGE_GROUP_NOT_IN_ADDRESS_BOOK = "Group %s is not in the address book.";
     public static final String GROUP_NAME_VALIDATION_REGEX = "^(TUT|LAB|REC)\\d{2}$";
-    public static final String LINK_VALIDATION_REGEX = "https://t\\.me/[A-Za-z0-9_+]+";
+    public static final String LINK_VALIDATION_REGEX = "(https://t\\.me/[A-Za-z0-9_+-]+)?";
     public static final String ATTENDANCE_VALIDATION_REGEX = "^[AP]$";
     public static final String WEEK_VALIDATION_REGEX = "^[1-9]\\d?$";
 
@@ -39,7 +40,7 @@ public class Group {
      */
     public Group(String groupName) {
         requireNonNull(groupName);
-        checkArgument(isValidGroupName(groupName), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidGroupName(groupName), MESSAGE_GROUP_NAME_CONSTRAINTS);
         this.groupName = groupName;
         this.telegramLink = "";
         this.attendance = new ArrayList<>();
@@ -56,7 +57,9 @@ public class Group {
      */
     public Group(String groupName, String link) {
         requireNonNull(groupName);
-        checkArgument(isValidGroupName(groupName), MESSAGE_CONSTRAINTS);
+        requireNonNull(link);
+        checkArgument(isValidGroupName(groupName), MESSAGE_GROUP_NAME_CONSTRAINTS);
+        checkArgument(isValidLink(link), MESSAGE_GROUP_LINK_CONSTRAINTS);
         this.groupName = groupName;
         this.telegramLink = link;
         this.attendance = new ArrayList<>();
@@ -70,7 +73,7 @@ public class Group {
      */
     public Group(String groupName, List<String> attendance) {
         requireNonNull(groupName);
-        checkArgument(isValidGroupName(groupName), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidGroupName(groupName), MESSAGE_GROUP_NAME_CONSTRAINTS);
         this.groupName = groupName;
         this.telegramLink = "";
         this.attendance = new ArrayList<>(attendance);
@@ -98,6 +101,9 @@ public class Group {
      * Returns true if a given string is a valid link.
      */
     public static boolean isValidLink(String test) {
+        if (test == "") {
+            return true;
+        }
         return test.matches(LINK_VALIDATION_REGEX);
     }
 

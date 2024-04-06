@@ -2,12 +2,13 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.group.GroupContainsKeywordsPredicate;
+import seedu.address.model.group.Group;
 import seedu.address.model.person.Person;
 
 /**
@@ -24,20 +25,13 @@ public class MailCommand extends Command {
 
     public static final String SHOW_MAILTO_LINK = "Showing the Email window";
 
-    private final GroupContainsKeywordsPredicate predicate;
+    private final Group group;
 
     /**
      * Constructs a MailCommand with a predicate.
      */
-    public MailCommand(GroupContainsKeywordsPredicate predicate) {
-        this.predicate = predicate;
-    }
-
-    /**
-     * Constructs a MailCommand without any predicate.
-     */
-    public MailCommand() {
-        this.predicate = null;
+    public MailCommand(Group group) {
+        this.group = group;
     }
 
     /**
@@ -49,10 +43,17 @@ public class MailCommand extends Command {
         requireNonNull(model);
 
         ReadOnlyAddressBook addressBook = model.getAddressBook();
-        List<Person> personList = addressBook.getPersonList().filtered(predicate);
+        List<Person> personList = addressBook.getPersonList();
+
+        List<Person> filteredPersonList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person.hasGroup(group)) {
+                filteredPersonList.add(person);
+            }
+        }
 
         // Extract email addresses of filtered students
-        List<String> emailList = personList.stream()
+        List<String> emailList = filteredPersonList.stream()
                 .map(Person::getEmail)
                 .filter(email -> !email.value.isEmpty())
                 .map(email -> email.value)
@@ -75,6 +76,6 @@ public class MailCommand extends Command {
         }
 
         MailCommand otherMailCommand = (MailCommand) other;
-        return predicate.equals(otherMailCommand.predicate);
+        return group.equals(otherMailCommand.group);
     }
 }

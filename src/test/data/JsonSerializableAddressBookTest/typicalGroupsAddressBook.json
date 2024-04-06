@@ -2,10 +2,12 @@
   "persons": [],
   "groups": [
     {
-      "groupName": "TUT04"
+      "groupName": "TUT04",
+      "telegramLink": ""
     },
     {
-      "groupName": "LAB10"
+      "groupName": "LAB10",
+      "telegramLink": ""
     }
   ]
 }

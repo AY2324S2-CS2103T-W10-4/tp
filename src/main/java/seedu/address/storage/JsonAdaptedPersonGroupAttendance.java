@@ -40,7 +40,7 @@ class JsonAdaptedPersonGroupAttendance {
      */
     public Group toModelType() throws IllegalValueException {
         if (!Group.isValidGroupName(groupName)) {
-            throw new IllegalValueException(Group.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Group.MESSAGE_GROUP_NAME_CONSTRAINTS);
         }
         return new Group(groupName, attendance);
     }

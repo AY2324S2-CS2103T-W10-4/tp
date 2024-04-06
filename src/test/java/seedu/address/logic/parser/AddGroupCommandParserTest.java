@@ -15,7 +15,7 @@ public class AddGroupCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsAddGroupCommand() {
-        assertParseSuccess(parser, " g/TUT04", new AddGroupCommand(new Group(VALID_GROUP_TUTORIAL)));
+        assertParseSuccess(parser, " grp/TUT04", new AddGroupCommand(new Group(VALID_GROUP_TUTORIAL)));
     }
 
     @Test

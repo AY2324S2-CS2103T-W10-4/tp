@@ -32,6 +32,9 @@ public class EditGroupCommandParser implements Parser<EditGroupCommand> {
         Group group = ParserUtil.parseGroup(argMultimap.getValue(PREFIX_GROUP).get());
         String link = ParserUtil.parseLink(argMultimap.getValue(PREFIX_TELEGRAM).get());
 
+        System.out.println(group);
+
+
         return new EditGroupCommand(group, link);
     }
 
