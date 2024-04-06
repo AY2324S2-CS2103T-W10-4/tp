@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -20,10 +21,10 @@ public class MailCommand extends Command {
 
     public static final String COMMAND_WORD = "mail";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": generates mailto link to students from "
-            + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " LAB10 TUT04";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": generates email for students from "
+            + "the specified group.\n"
+            + "Parameters: " + PREFIX_GROUP + "[GROUP_NAME]\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_GROUP + "LAB10";
 
     public static final String MESSAGE_NO_PERSON = "Group: %s does not contain any student.";
 
