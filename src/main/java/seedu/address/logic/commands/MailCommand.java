@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.group.Group;
@@ -23,6 +24,8 @@ public class MailCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " LAB10 TUT04";
 
+    public static final String MESSAGE_NO_PERSON = "Group: %s does not contain any student";
+
     public static final String SHOW_MAILTO_LINK = "Showing the Email window";
 
     private final Group group;
@@ -39,7 +42,7 @@ public class MailCommand extends Command {
      * Shows a pop-up window containing the mailto link
      */
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
         ReadOnlyAddressBook addressBook = model.getAddressBook();
@@ -50,6 +53,10 @@ public class MailCommand extends Command {
             if (person.hasGroup(group)) {
                 filteredPersonList.add(person);
             }
+        }
+
+        if (filteredPersonList.size() == 0) {
+            throw new CommandException(String.format(MESSAGE_NO_PERSON, group));
         }
 
         // Extract email addresses of filtered students
