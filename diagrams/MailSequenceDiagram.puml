@@ -1,0 +1,69 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":MailCommandParser" as MailCommandParser LOGIC_COLOR
+participant "d:MailCommand" as MailCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("mail TUT05")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("mail TUT05")
+activate AddressBookParser
+
+create MailCommandParser
+AddressBookParser -> MailCommandParser
+activate MailCommandParser
+
+MailCommandParser --> AddressBookParser
+deactivate MailCommandParser
+
+AddressBookParser -> MailCommandParser : parse("TUT05")
+activate MailCommandParser
+
+create MailCommand
+MailCommandParser -> MailCommand
+activate MailCommand
+
+MailCommand --> MailCommandParser : d
+deactivate MailCommand
+
+MailCommandParser --> AddressBookParser : d
+deactivate MailCommandParser
+
+MailCommandParser -[hidden]-> AddressBookParser
+destroy MailCommandParser
+
+AddressBookParser --> LogicManager : d
+deactivate AddressBookParser
+
+LogicManager -> MailCommand : execute()
+activate MailCommand
+
+MailCommand -> Model : getAddressBook()
+activate Model
+
+Model --> MailCommand
+deactivate Model
+
+create CommandResult
+MailCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> MailCommand : result
+deactivate CommandResult
+
+MailCommand --> LogicManager : result
+deactivate MailCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
