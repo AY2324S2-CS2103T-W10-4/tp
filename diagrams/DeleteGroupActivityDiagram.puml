@@ -1,0 +1,18 @@
+@startuml
+start
+:User executes deletegroup command;
+
+if () then ([GROUP_NAME provided in invalid])
+    :Show invalid group name as error message;
+
+else ([else])
+    if () then ([Group name does not exist in TutorsContactsPro])
+    : Show non-existent group error message;
+    else([else])
+    : Delete group from the group list;
+    : Removes the group tab in the GUI;
+    endif
+
+endif
+stop
+@enduml

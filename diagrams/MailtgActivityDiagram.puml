@@ -1,0 +1,25 @@
+@startuml
+start
+:User executes mailtg command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([command is in invalid format])
+    :Show invalid command format as error message;
+
+
+else ([else])
+    if () then ([multiple GROUP_NAME provided])
+    : Show multiple fields specified error message;
+    else ([else])
+        if () then ([GROUP_NAME provided is invalid])
+        : Show invalid group name as error message;
+        else([else])
+            : Generates email template pop-up window;
+        endif
+    endif
+endif
+stop
+
+@enduml

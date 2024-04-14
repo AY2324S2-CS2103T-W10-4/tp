@@ -1,0 +1,75 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":DeleteGroupCommandParser" as DeleteGroupCommandParser LOGIC_COLOR
+participant "d:DeleteGroupCommand" as DeleteGroupCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("deletegroup g/TUT05")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("deletegroup g/TUT05")
+activate AddressBookParser
+
+create DeleteGroupCommandParser
+AddressBookParser -> DeleteGroupCommandParser
+activate DeleteGroupCommandParser
+
+DeleteGroupCommandParser --> AddressBookParser
+deactivate DeleteGroupCommandParser
+
+AddressBookParser -> DeleteGroupCommandParser : parse("g/TUT05")
+activate DeleteGroupCommandParser
+
+create DeleteGroupCommand
+DeleteGroupCommandParser -> DeleteGroupCommand
+activate DeleteGroupCommand
+
+DeleteGroupCommand --> DeleteGroupCommandParser : d
+deactivate DeleteGroupCommand
+
+DeleteGroupCommandParser --> AddressBookParser : d
+deactivate DeleteGroupCommandParser
+
+DeleteGroupCommandParser -[hidden]-> AddressBookParser
+destroy DeleteGroupCommandParser
+
+AddressBookParser --> LogicManager : d
+deactivate AddressBookParser
+
+LogicManager -> DeleteGroupCommand : execute()
+activate DeleteGroupCommand
+
+DeleteGroupCommand -> Model : getFilteredGroupList()
+activate Model
+
+Model --> DeleteGroupCommand
+deactivate Model
+
+DeleteGroupCommand -> Model : deleteGroup(example)
+activate Model
+
+Model --> DeleteGroupCommand
+deactivate Model
+
+create CommandResult
+DeleteGroupCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> DeleteGroupCommand : result
+deactivate CommandResult
+
+DeleteGroupCommand --> LogicManager : result
+deactivate DeleteGroupCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

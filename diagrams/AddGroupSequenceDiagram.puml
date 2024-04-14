@@ -1,0 +1,76 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AddGroupCommandParser" as AddGroupCommandParser LOGIC_COLOR
+participant "a:AddGroupCommand" as AddGroupCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("addgroup g/LAB10")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("addgroup g/LAB10")
+activate AddressBookParser
+
+create AddGroupCommandParser
+AddressBookParser -> AddGroupCommandParser
+activate AddGroupCommandParser
+
+AddGroupCommandParser --> AddressBookParser
+deactivate AddGroupCommandParser
+
+AddressBookParser -> AddGroupCommandParser : parse("g/LAB10")
+activate AddGroupCommandParser
+
+create AddGroupCommand
+AddGroupCommandParser -> AddGroupCommand
+activate AddGroupCommand
+
+AddGroupCommand --> AddGroupCommandParser : a
+deactivate AddGroupCommand
+
+AddGroupCommandParser --> AddressBookParser : a
+deactivate AddGroupCommandParser
+
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+AddGroupCommandParser -[hidden]-> AddressBookParser
+destroy AddGroupCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AddGroupCommand : execute()
+activate AddGroupCommand
+
+AddGroupCommand -> Model : hasGroup(LAB10)
+activate Model
+
+Model --> AddGroupCommand
+deactivate Model
+
+AddGroupCommand -> Model : addGroup(LAB10)
+activate Model
+
+Model --> AddGroupCommand
+deactivate Model
+
+create CommandResult
+AddGroupCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> AddGroupCommand : result
+deactivate CommandResult
+
+AddGroupCommand --> LogicManager : result
+deactivate AddGroupCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

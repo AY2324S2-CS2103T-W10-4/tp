@@ -1,0 +1,29 @@
+@startuml
+start
+:User executes mark command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([command is in invalid format])
+    :Show invalid command format as error message;
+
+else ([else])
+    if () then ([Group name does not exist in TutorsContactsPro])
+    : Show non-existent group error message;
+    else([else])
+        if () then ([invalid week number provided])
+        : Show invalid week number error message;
+        else ([else])
+            if () then ([invalid attendance provided])
+            : Show invalid attendance error message;
+            else ([else])
+            : marks attendance of student;
+            : Updates the attendance table under group tab GUI;
+            endif
+        endif
+    endif
+endif
+stop
+
+@enduml

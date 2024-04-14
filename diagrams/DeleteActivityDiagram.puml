@@ -1,16 +1,16 @@
 @startuml
 start
-:Student TA executes add command;
+:User executes delete command;
 
-if () then ([command is in invalid format])
+if () then ([No INDEX provided])
     :Show invalid command format as error message;
 
 else ([else])
-    if () then ([Student already exists in TutorsContactsPro])
-    : Show duplicate group error message;
+    if () then ([INDEX provided is invalid])
+    :Show invalid command format as error message;
     else([else])
-    : Add student to the contact list;
-    : Displays student list in the GUI;
+    : Deletes the specific student from the contact list;
+    : Displays updated student list in the GUI;
     endif
 
 endif

@@ -1,0 +1,13 @@
+@startuml
+
+start
+:User executes find command;
+
+if () then ([KEYWORD parameter is not provided])
+    :Show invalid command format as error message;
+    else([else])
+    :Displays the contacts in the result display;
+endif
+stop
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+start
+:User executes addgroup command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([GROUP_NAME provided is invalid])
+    :Show invalid group name as error message;
+
+else ([else])
+    if () then ([Group name already exists in TutorsContactsPro])
+    : Show duplicate group error message;
+    else([else])
+    : Add group to the group list;
+    : Displays new group tab in the GUI;
+    endif
+
+endif
+stop
+@enduml
