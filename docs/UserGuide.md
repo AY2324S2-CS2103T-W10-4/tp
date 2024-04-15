@@ -62,7 +62,7 @@ pageNav: 3
 
   * [Generating email template: `mail`](#feature-mail)
 
-  * [Generating email template for telegram link: `mailtg`](#feature-mailtg)
+  * [Generating email template for Telegram link: `mailtg`](#feature-mailtg)
 
 * [FAQ](#feature-faq)
 
