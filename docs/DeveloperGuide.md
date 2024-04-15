@@ -499,11 +499,11 @@ Given below is the example usage scenario and how the add group mechanism behave
 
 9. Finally, the `EditGroupCommand` creates a `CommandResult` with a success message and return it to the `LogicManager` to complete the command execution.
 
+<div style="page-break-after: always;"></div>
+
 The following sequence diagram shows how the `editgroup` mechanism works:
 
 <img src="images/EditgroupSequenceDiagram.png" width="900" />
-
-<div style="page-break-after: always;"></div>
 
 The following activity diagram summarizes what happens when a user executes the `editgroup` command:
 
