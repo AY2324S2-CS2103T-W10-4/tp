@@ -935,6 +935,6 @@ with(this){return _c('h3',{attrs:{"id":"achievements"}},[_c('strong',[_v("Achiev
 with(this){return _c('ul',[_c('li',[_v("Built a comprehensive but easy-to-understand user interface")]),_v(" "),_c('li',[_v("Generate a relatively user-friendly interface with inclusion of sufficient and comprehensive CLI command and GUI design")]),_v(" "),_c('li',[_v("TutorsContactsPro is comprehensive, storing essential student information for users")]),_v(" "),_c('li',[_v("TutorsContactsPro also addresses the main pain points for TA users with the introduction of new features such as generating email template and marking attendance for students")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 11:59:14 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 12:13:07 GMT+8]")])])])}
 }];
   
