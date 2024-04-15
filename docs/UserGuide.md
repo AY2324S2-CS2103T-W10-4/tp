@@ -5,11 +5,8 @@ pageNav: 3
 ---
 ![Logo](images/TutorsContactsProLogo.png)
 
-# Table of Contents
-<!-- TOC -->
-<page-nav-print />
 
-## Quick Overview
+## Table of Contents
 
 * [Introduction](#feature-introduction)
 
@@ -111,6 +108,7 @@ Feel free to turn back to this user guide if you encounter any problems or doubt
 
 
 
+<div style="page-break-after: always;"></div>
 
 ## <span id='#navigating-the-user-guide'> Navigating the User Guide <span>
 Throughout this user guide, the following symbols and keywords will be utilized for your convenience.
@@ -124,14 +122,16 @@ Throughout this user guide, the following symbols and keywords will be utilized 
 
 Below is the glossary for important technical terms that you may find useful.
 
-| Technical terms | Meaning                                                                                                                                                                                                                                            | 
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CLI             | CLI stands for Command Line Interface. It is a text-based interface used for interacting with computer systems and executing commands by typing them into a terminal window.                                                                       | 
-| GUI             | GUI stands for Graphical User Interface, a visual way of interacting with computers using icons and menus instead of text commands.                                                                                                                | 
-| Command         | Command refers to a directive or instruction given to a computer system to perform a specific task or function.                                                                                                                                    |             
-| GUI component   | GUI component refers to an element or part of a graphical user interface (GUI) that allows users to interact with the software application.                                                                                                        |
-| UI              | A User Interface (UI) refers to the platform or system through which users interact with software applications or electronic devices, encompassing elements like graphical interfaces, command-line interfaces, and voice-controlled interfaces.   |
-| Interface       | An interface is a platform or system that allows users to interact with software applications or electronic devices, aiming to create intuitive and user-friendly experiences.                                                                     |
+| Technical terms        | Meaning                                                                                                                                                                                                                                          | 
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CLI                    | CLI stands for Command Line Interface. It is a text-based interface used for interacting with computer systems and executing commands by typing them into a terminal window.                                                                     | 
+| GUI                    | GUI stands for Graphical User Interface, a visual way of interacting with computers using icons and menus instead of text commands.                                                                                                              | 
+| Command                | Command refers to a directive or instruction given to a computer system to perform a specific task or function.                                                                                                                                  |             
+| GUI component          | GUI component refers to an element or part of a graphical user interface (GUI) that allows users to interact with the software application.                                                                                                      |
+| UI                     | A User Interface (UI) refers to the platform or system through which users interact with software applications or electronic devices, encompassing elements like graphical interfaces, command-line interfaces, and voice-controlled interfaces. |
+| Interface              | An interface is a platform or system that allows users to interact with software applications or electronic devices, aiming to create intuitive and user-friendly experiences.                                                                   |
+| Domain                 | A domain, in the context of the internet, refers to a unique address used to identify a particular website or network. E.g. for the email address `username@example.com`, the domain is `example.com`.                                           |
+| Top-Level Domain (TLD) | The top-level domain (TLD) is the part of a website's address that comes after the last dot. It shows what kind of website it is. E.g. for the email address `username@example.com`, the TLD is `.com`.                                          |
 
 [Table Of Contents](#table-of-contents)
 
@@ -148,31 +148,33 @@ Ensure you have Java `11` or above installed on your computer. If you don't have
 
 ### Step 2: Download
 
-Download the latest `[CS2103T-W10-4][TutorsContactsPro].jar` from [here](https://github.com/AY2324S2-CS2103T-W10-4/tp/releases).
+Download the latest `TutorsContactsPro.jar` from [here](https://github.com/AY2324S2-CS2103T-W10-4/tp/releases).
 
 ### Step 3: Set up TutorsContactsPro Home Folder
 
-Copy or move the downloaded `[CS2103T-W10-4][TutorsContactsPro].jar` file to the folder you want to use as the _home folder_ for your TutorsContactsPro.
+Copy or move the downloaded `TutorsContactsPro.jar` file to the folder you want to use as the _home folder_ for your TutorsContactsPro.
+
+<div style="page-break-after: always;"></div>
 
 ### Step 4: Launch TutorsContactsPro
 
 1. Open a terminal (MacOS) or command prompt (Windows).
 
-2. Navigate to the folder where you placed the `[CS2103T-W10-4][TutorsContactsPro].jar` file using the `cd` command. For example, John Doe has his `[CS2103T-W10-4][TutorsContactsPro].jar` file in `/Users/JohnDoe/Desktop/TutorsContactsPro`, so he'll run:
+2. Navigate to the folder where you placed the `TutorsContactsPro.jar` file using the `cd` command. For example, John Doe has his `TutorsContactsPro.jar` file in `/Users/JohnDoe/Desktop/TutorsContactsPro`, so he'll run:
 
     ```bash
     cd /Users/JohnDoe/Desktop/TutorsContactsPro
     ```
 
-3. If you are using terminal, verify that your working directory contains `[CS2103T-W10-4][TutorsContactsPro].jar` by using the `ls` command. 
-Else if you are using command prompt, verify that your working directory contains `[CS2103T-W10-4][TutorsContactsPro].jar` by using the `dir` command.
+3. If you are using terminal, verify that your working directory contains `TutorsContactsPro.jar` by using the `ls` command. 
+Else if you are using command prompt, verify that your working directory contains `TutorsContactsPro.jar` by using the `dir` command.
 You should see `TutorsContactsPro.jar` in the list of files printed. Here's what our John Doe got when running this command.
 
     ```bash
     JohnDoe@johndoe TutorsContactsPro % ls
     TutorsContactsPro.jar
     ```
-4. Once your terminal's working directory is the folder that contains `[CS2103T-W10-4][TutorsContactsPro].jar`, run the following command to launch TutorsContactsPro:
+4. Once your terminal's working directory is the folder that contains `TutorsContactsPro.jar`, run the following command to launch TutorsContactsPro:
 
     ```bash 
     java -jar TutorsContactsPro.jar
@@ -180,7 +182,7 @@ You should see `TutorsContactsPro.jar` in the list of files printed. Here's what
 
    After executing this command, a graphical user interface (GUI) similar to the one below should appear shortly:
 
-   <img src="images/UI.png" width="700">
+   <img src="images/Ui.png" width="700">
 
 
 Note: The application comes with some sample data for your reference.
@@ -202,8 +204,8 @@ TutorsContactsPro allows you to store essential information or attributes about 
 | Parameter         | Representation                           | Prefix | Constraints                                                                             |
 |-------------------|------------------------------------------|--------|-----------------------------------------------------------------------------------------|
 | `NAME`            | Name of the student                      | `n/`   | Auto-capitalization will be handled. Extra/trailing/leading spaces will be removed      |
-| `PHONE_NUMBER`    | Phone number of the student              | `p/`   | Singapore phone number, 8 digits, without country code                                  |
-| `EMAIL`           | Email of the student                     | `e/`   | Must be in email format `email username`@`domain`                                       |
+| `PHONE_NUMBER`    | Phone number of the student              | `p/`   | Must be in numerical format with no limitations on the number of digits                 |
+| `EMAIL`           | Email of the student                     | `e/`   | Must be in email format `email username`@`domain` but can exclude top-level domain(TLD) |
 | `YEAR`            | Academic Year of the student             | `y/`   | A number ranging from 1 - 6, inclusive                                                  |
 | `MAJOR`           | Academic Major of the student contact    | `m/`   | String to represent the major                                                           |
 | `TELEGRAM_HANDLE` | Telegram handle of the student           | `tg/`  | Telegram handle format (a-z, 0-9 and underscores, case-insensitive), without prefix “@” |
@@ -220,8 +222,8 @@ It can only strictly be a Tutorial/Recitation/Lab.
 | Parameter       | Representation             | Prefix  | Constraints                                                                     |
 |-----------------|----------------------------|---------|---------------------------------------------------------------------------------|
 | `GROUP_NAME`    | Name of the group          | `g/`    | Group name must begin with `TUT/REC/LAB` + `2-digit number`                     |
-| `TELEGRAM_LINK` | Telegram link of the group | `tg/`   | Must be a valid Telegram group link                                             |
-| `ATTENDANCE   ` | Attendance of the student  | `a/`    | A string array representing the attendance, initially automatically constructed |
+| `TELEGRAM_LINK` | Telegram link of the group | `tg/`   | Must be a valid Telegram group link beginning with `https://t.me`               |
+| `ATTENDANCE`    | Attendance of the student  | `a/`    | A string array representing the attendance, initially automatically constructed |
 
 
 ## <span id='feature-ui'> Understanding the User Interface (UI) <span>
@@ -231,7 +233,7 @@ TutorsContactsPro's UI consists of 4 main parts that you will be using:
 * In the menu bar, you can effortlessly exit TutorsContactsPro or access the help window with just a click of your mouse!
 * Fear not if you are not well-versed in commands, the menu bar offers a beginner-friendly alternative to exit TutorsContactsPro or open the help window.
 
-### Help:
+### Help
 Upon clicking help on the menu bar or by using the shortcut `F1`, you will be assisted with a help window pop-up.
 More is to be explained in [`help`](#feature-help) feature.
 
@@ -367,14 +369,14 @@ This section contains commands for managing students in TutorsContactsPro.
 
 ### <span id='feature-add'> Adding a student: `add` </span>
 
-Adds a student to the list, so that you can keep track of all student details easily.
+Adds a student to the list. This way, you can keep track of all student details easily.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL y/YEAR m/MAJOR tg/TELEGRAM_HANDLE [r/REMARK] [g/GROUP]…​`
 
 > ℹ️ **Information:**
 > * Allows addition of multiple groups to a student.
 > * Allows optional addition of a single remark or group(s) to a student.
-> * Allows addition of a student with an email that does not include a domain name as email can be hosted on a local machine. 
+> * Allows addition of student emails with domain names, excluding the need for top-level domains(TLD) such as .com or .sg as email can be hosted on a local machine. 
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com y/2 m/Computer Science tg/johndoe r/Very quiet student g/TUT04 g/LAB05` 
@@ -401,7 +403,7 @@ Examples:
 
 ### <span id='feature-edit'> Editing a student : `edit` <span>
 
-Edits an existing student you have selected. This way, you can always keep student details recorded up to date!
+Edits an existing student you have selected. This way, you can always keep student details recorded up to date.
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [y/YEAR] [m/MAJOR] [tg/TELEGRAM_HANDLE] [r/REMARK] [g/Group]…​`
 
@@ -419,7 +421,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [y/YEAR] [m/MAJOR] [tg/T
 
 Examples:
 *  `edit 1 n/John e/john01@example.com` Edits the name of the first student to `John` and email to `john01@example.com` respectively.
-*  `edit 2 n/Betty tg/` Edits the name of the 2nd student to be `Betty` and clears her telegram handle.
+*  `edit 2 n/Betty tg/` Edits the name of the second student to be `Betty` and clears her telegram handle.
 
 ### <span id='feature-find'> Locating students by keyword: `find` <span>
 Finds students whose details include any of the specified keywords.
@@ -463,11 +465,11 @@ Examples:
 
 ### <span id='feature-mark'> Marking students attendance by group week number: `mark` <span>
 
-Marks the student's attendance according to the group name and week number, allowing you to easily keep track of students' attendance details. This function marks if the student is absent or present.
+Marks the student's attendance according to the group name and week number. This way, you can easily keep track of students' attendance details.
 
 Format: `mark INDEX g/GROUP_NAME w/WEEK a/ATTENDANCE`
 
-> ⚠️️ **Constraint:**
+> ⚠️️ **Warning:**
 > * `GROUP_NAME` must be in the correct format of `TUT/REC/LAB` + `2-digit number`, the group should exsist in the student
 > * `WEEK` must be a valid week number, from 1 to 13.
 > * `ATTENDANCE` must be either `A` for absent or `P`for present (should not be 'a' or 'p').
@@ -475,12 +477,14 @@ Format: `mark INDEX g/GROUP_NAME w/WEEK a/ATTENDANCE`
 > ℹ️ **Information:**
 > * Marks the student at the specified INDEX. The index refers to the index number shown in the displayed student list. The index must be a positive integer 1, 2, 3, …​
 > * All the fields should be provided, index, group, week, attendance.
-> * Since there are 13 weeks in total in a tutorial or lab, only 13 marks are available.
 > * Resize the TutorsContactsPro window to view the full 13 weeks attendance table. 
 
+> 💡**Tips:**
+> * You can simply remark by overwritting the attendance <br>
+
 Examples:
-* `mark 1 g/TUT05 w/1 a/P` Marks the attendance of the 1st student in the list. Marks `TUT05` week 1 attendance as present.
-* `mark 2 g/LAB05 w/1 a/A` Marks the attendance of the 2nd student in the list. Marks `LAB05` week 1 attendance as absent as shown in the image below.
+* `mark 1 g/TUT05 w/1 a/P` Marks the attendance of the first student in the list. Marks `TUT05` week 1 attendance as present.
+* `mark 2 g/LAB05 w/1 a/A` Marks the attendance of the second student in the list. Marks `LAB05` week 1 attendance as absent as shown in the image below.
 
   ![result for 'mark 1'](images/markAttendance.png)
 
@@ -513,7 +517,7 @@ TutorsContactsPro will then automatically generate a dedicated tab for each new 
 
 format: `addgroup g/GROUP_NAME`
 
-> ⚠️️ **Constraint:**
+> ⚠️️ **Warning:**
 > * `GROUP_NAME` must be in the correct format of `TUT/REC/LAB` + `2-digit number`.
 
 > ℹ️ **Information:**
@@ -532,7 +536,7 @@ Edits an existing group in TutorsContactsPro, allowing you to add or edit the Te
 
 Format: `editgroup g/GROUP_NAME tg/TELEGRAM_LINK`
 
-> ⚠️️ **Constraint:**
+> ⚠️️ **Warning:**
 > * `GROUP_NAME` must be in the correct format of `TUT/REC/LAB` + `2-digit number`.
 > * The Telegram invite link must be a valid Telegram group invite link or an empty string.
 
@@ -552,7 +556,7 @@ TutorsContactsPro will then remove the dedicated tab for the group deleted.
 
 Format: `deletegroup g/GROUP_NAME`
 
-> ⚠️️ **Constraint:**
+> ⚠️️ **Warning:**
 > * `GROUP_NAME` must be in the correct format of `TUT/REC/LAB` + `2-digit number`.
 
 Examples:
@@ -635,7 +639,22 @@ _Details coming soon ..._
 ## <span id='feature-faq'> FAQ <span>
 
 **Q**: How do I transfer my data to another computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TutorsContactsPro home folder.
+**A**: Install TutorsContactsPros in the other computer and overwrite the empty data file it creates with the file that contains the data of your .json file.
+
+**Q**: How do I save my data?<br>
+**A**: Our TutorsContactsPros ensures the data is saved automatically without any additional functions. 
+
+**Q**: I cannot see my attendance boxes, how can I fix this?<br>
+**A**: Try maximizing the screen size to see all the components in the app.
+
+**Q**: Is there a mobile version of TutorsContactsPros available?<br>
+**A**: Currently, TutorsContactsPros is only available for desktop use. 
+
+**Q**: How do I update TutorsContactsPros to the latest version?<br>
+**A**: To update TutorsContactsPros, visit our github website and download the latest version. Uninstall the previous version from your computer before installing the new version.
+
+**Q**: What should I do if TutorsContactsPros crashes?<br>
+**A**: If TutorsContactsPros crashes, restart the application. If the problem persists, reinstall the software and ensure your computer meets the system requirements.
 
 [Table Of Contents](#table-of-contents)
 
