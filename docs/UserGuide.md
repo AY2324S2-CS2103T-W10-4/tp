@@ -717,8 +717,6 @@ _coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
-<div style="page-break-after: always;"></div>
-
 ## <span id='feature-summary'> Command summary <span>
 
 | Action          | Format, Examples                                                                                                                                                                                                        |
