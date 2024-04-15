@@ -295,7 +295,7 @@ Some example commands you can try:
 
 * [`mail`](#feature-mail) : Generates a prefilled email template sent to emails of all students on the list.
 
-* [`mailtg g/TUT01`](#feature-mailtg) : Generates a prefilled email template containing the telegram link for 'TUT01', with the recipient field prefilled with students of 'TUT01'.
+* [`mailtg g/TUT01`](#feature-mailtg) : Generates a prefilled email template containing the Telegram link for 'TUT01', with the recipient field prefilled with students of 'TUT01'.
 
 
 Refer to the [Command Notes and Features](#feature-features) below for details of each command.
@@ -432,7 +432,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [y/YEAR] [m/MAJOR] [tg/T
 
 Examples:
 *  `edit 1 n/John e/john01@example.com` Edits the name of the first student to `John` and email to `john01@example.com` respectively.
-*  `edit 2 n/Betty tg/` Edits the name of the second student to be `Betty` and clears her telegram handle.
+*  `edit 2 n/Betty tg/` Edits the name of the second student to be `Betty` and clears her Telegram handle.
 
 <div style="page-break-after: always;"></div>
 
