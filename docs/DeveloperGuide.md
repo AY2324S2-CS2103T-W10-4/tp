@@ -386,6 +386,8 @@ The result message is then displayed to the user via the GUI. The attendance tab
 The following sequence diagram illustrates how the `mark` mechanism works:
 <img src="images/MarkAttendanceSequenceDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
+
 The following activity diagram summarizes what happens when a user executes the `mark` command:
 
 <img src="images/MarkAttendanceActivityDiagram.png" width="900" />  
@@ -439,6 +441,8 @@ Given below is the example usage scenario and how the add group mechanism behave
 
 9. Finally, the `AddGroupCommand` creates a `CommandResult` with a success message and return it to the `LogicManager` to complete the command execution.
    The GUI would also be updated on this change and created a new dedicated group tab for this new group added.
+
+<div style="page-break-after: always;"></div>
 
 The following sequence diagram shows how the `addgroup` mechanism works:
 
@@ -499,6 +503,8 @@ The following sequence diagram shows how the `editgroup` mechanism works:
 
 <img src="images/EditgroupSequenceDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
+
 The following activity diagram summarizes what happens when a user executes the `editgroup` command:
 
 <img src="images/EditgroupActivityDiagram.png" width="900" />
@@ -553,6 +559,8 @@ Given below is the example usage scenario and how the delete group mechanism beh
 10. Finally, the `DeleteGroupCommand` creates a `CommandResult` with a success message and return it to the `LogicManager` to complete the command execution.
     The GUI would also be updated on this change and remove the dedicated group tab for the group deleted. 
 
+<div style="page-break-after: always;"></div>
+
 The following sequence diagram shows how the `deletegroup` mechanism works:
 
 <img src="images/DeletegroupSequenceDiagram.png" width="900" />
@@ -604,6 +612,8 @@ The user inputs the `mail` command followed by optional keywords specifying grou
 
 The Mail Command feature provides an efficient way for users to compose emails to specific groups of students directly from the application. By leveraging the power of filtering, it allows for targeted communication while maintaining simplicity and ease of use.
 
+<div style="page-break-after: always;"></div>
+
 The following sequence diagram illustrates how the `mail` mechanism works:
 
 <img src="images/MailSequenceDiagram.png" width="900" />
@@ -652,6 +662,8 @@ The user inputs the `mailtg` command followed by the `/g` prefix and the keyword
 ### Summary
 
 The Mailtg Command feature provides an efficient way for users to compose emails to specific groups of students directly from the application. By leveraging the power of filtering, it allows for targeted communication while maintaining simplicity and ease of use.
+
+<div style="page-break-after: always;"></div>
 
 The following sequence diagram illustrates how the `mailtg` mechanism works:
 
@@ -1437,6 +1449,7 @@ Given below are the planned enhancements for the application.
 
 8. **Make filter feature error message more specific**: When filtered with a non-existing group, the current error message displays`0 students listed!` which is too general. We plan to `filter` command check whether the `GROUP_NAME` provided is an existing group. The error message will then also mention the reason for failing to filter any students: `Group does not exist, 0 students listed!`
 
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Effort**
 
