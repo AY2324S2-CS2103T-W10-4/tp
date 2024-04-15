@@ -22,7 +22,7 @@ pageNav: 3
 
   * [Learning about TutorsContactsPro components](#feature-learn)
 
-  * [Learning about TutorsContactsPro User Interface (UI)](#feature-ui)
+  * [Understanding the User Interface (UI)](#feature-ui)
 
   * [Quick Start](#feature-quickStart)
 
