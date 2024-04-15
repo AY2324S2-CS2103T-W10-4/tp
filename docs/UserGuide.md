@@ -108,7 +108,7 @@ Feel free to turn back to this user guide if you encounter any problems or doubt
 
 
 
-
+<div style="page-break-after: always;"></div>
 ## <span id='#navigating-the-user-guide'> Navigating the User Guide <span>
 Throughout this user guide, the following symbols and keywords will be utilized for your convenience.
 
