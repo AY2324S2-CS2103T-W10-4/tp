@@ -109,6 +109,7 @@ Feel free to turn back to this user guide if you encounter any problems or doubt
 
 
 <div style="page-break-after: always;"></div>
+
 ## <span id='#navigating-the-user-guide'> Navigating the User Guide <span>
 Throughout this user guide, the following symbols and keywords will be utilized for your convenience.
 
@@ -152,6 +153,8 @@ Download the latest `TutorsContactsPro.jar` from [here](https://github.com/AY232
 ### Step 3: Set up TutorsContactsPro Home Folder
 
 Copy or move the downloaded `TutorsContactsPro.jar` file to the folder you want to use as the _home folder_ for your TutorsContactsPro.
+
+<div style="page-break-after: always;"></div>
 
 ### Step 4: Launch TutorsContactsPro
 
