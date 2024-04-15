@@ -79,8 +79,6 @@ The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `Re
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/major/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
-<div style="page-break-after: always;"></div>
-
 The `UI` component,
 
 * executes user commands using the `Logic` component.
@@ -107,6 +105,8 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
 
+<div style="page-break-after: always;"></div>
+
 How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
@@ -122,6 +122,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/major/model/Model.java)
@@ -188,8 +190,6 @@ A modification from AB3 delete mechanism is that the `delete` command also invol
 which is exposed in the `Model` interface as `Model#deassignPerson(Person person, Group group)`, which result in the call of `Group#deassign(Person person)` to
 deassign the deleted student contact from all previously assigned groups.
 
-<div style="page-break-after: always;"></div>
-
 #### Parsing input
 
 1. The users inputs the `delete` command.
@@ -212,6 +212,7 @@ deassign the deleted student contact from all previously assigned groups.
 7. The `DeleteCommand` then calls the `Model#deletePerson(Person personToDelete)` to delete the target student contact from the
    student contact list.
 
+<div style="page-break-after: always;"></div>
 
 #### Displaying of result
 
@@ -221,6 +222,8 @@ deassign the deleted student contact from all previously assigned groups.
 The following sequence diagram shows how the `delete` mechanism works:
 
 <img src="images/DeleteSequenceDiagram.png" width="900" />
+
+<div style="page-break-after: always;"></div>
 
 The following activity diagram summarizes what happens when a user executes the `delete` command:
 
@@ -260,6 +263,8 @@ Given below is the example usage scenario and how the `find` mechanism behaves a
 7. The `FindCommand` calls the `Model#updateFilteredPersonList()` to update the filtered person list based on the user input `KEYWORD`.
 8. The `FindCommand` then calls the `Model#getFilteredPersonList()#size()` to get the size of the person list. The size will correspond to the number of persons listed.
 
+<div style="page-break-after: always;"></div>
+
 #### Displaying of result
 9. Finally, the `FindCommand` creates a `CommandResult` with a success message and return it to the `LogicManager` to complete the command execution.
    The GUI would also be updated on this change in the student list and update the display of student list accordingly.
@@ -271,6 +276,8 @@ The following sequence diagram shows how the `find` mechanism works:
 The following activity diagram summarizes what happens when a user executes the `find` command:
 
 <img src="images/FindActivityDiagram.png" width="900" />
+
+<div style="page-break-after: always;"></div>
 
 ### Design considerations
 
@@ -310,6 +317,8 @@ It enables users to filter students based on the groups they belong to. It utili
 5. The `LogicManager` executes the `FilterCommand`.
 
 6. The `FilterCommand` calls the `Model#updateFilteredPersonList()` method to update the filtered person list according to the specified group keywords.
+
+<div style="page-break-after: always;"></div>
 
 #### Displaying results
 
@@ -381,6 +390,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/MarkAttendanceActivityDiagram.png" width="900" />  
 
+<div style="page-break-after: always;"></div>
 
 ## Add group feature
 
@@ -438,6 +448,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/AddgroupActivityDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
 
 ## Edit group feature
 
@@ -492,6 +503,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/EditgroupActivityDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
 
 ## Delete group feature
 
@@ -549,6 +561,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/DeletegroupActivityDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
 
 ## Mail Command
 
@@ -599,6 +612,8 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/MailActivityDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
+
 ## Mailtg Command
 
 ### About
@@ -646,6 +661,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 <img src="images/MailtgActivityDiagram.png" width="900" />
 
+<div style="page-break-after: always;"></div>
 
 ### \[Proposed\] Undo/redo feature
 
@@ -751,6 +767,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 * [DevOps guide](DevOps.md)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Requirements**
 
