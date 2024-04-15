@@ -28,7 +28,7 @@ pageNav: 3
 
 * [Command Notes](#feature-features)
 
-* [Basic Commands](#feature-basicCommand)
+* [Basic Commands](#feature-basicCommands)
 
   * [Viewing help: `help`](#feature-help)
 
@@ -38,7 +38,7 @@ pageNav: 3
 
   * [Exiting the program: `exit`](#feature-exit)
 
-* [Student Commands](#feature-studentCommand)
+* [Student Commands](#feature-studentCommands)
 
   * [Adding a student: `add`](#feature-add)
 
@@ -52,7 +52,7 @@ pageNav: 3
 
   * [Deleting a student: `delete`](#feature-delete)
 
-* [Group Commands](#feature-groupCommand)
+* [Group Commands](#feature-groupCommands)
 
   * [Adding a group: `addgroup`](#feature-addgroup)
 
@@ -265,7 +265,7 @@ The following image summarises the overall layout of TutorsContactsPro's User In
 
 <div style="page-break-after: always;"></div>
 
-## <span id='feature-start'> Quick start <span>
+## <span id='feature-quickStart'> Quick start <span>
 Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
 Some example commands you can try:
 
