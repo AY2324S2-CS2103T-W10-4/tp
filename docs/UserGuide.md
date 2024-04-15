@@ -188,6 +188,7 @@ You should see `TutorsContactsPro.jar` in the list of files printed. Here's what
 Note: The application comes with some sample data for your reference.
 
 
+<div style="page-break-after: always;"></div>
 ---
 
 ## <span id='feature-learn'> Learning about TutorsContactsPro components <span>
@@ -242,12 +243,16 @@ More is to be explained in [`help`](#feature-help) feature.
 * You can type in your command in the upper box.
 * And use the lower box to view the results of those commands.
 
+<div style="page-break-after: always;"></div>
+
 ### Student Panel
 * The Student panel is a panel that you can use to see the list of students stored in TutorsContactsPro.
 * You can see student's name, phone number, year of study, major, email address, group, Telegram handle and even whatever remarks that you have for each of them as needed!
 
 The following image displays the layout of a student panel. 
 ![Student Panel](images/StudentPanel.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Result and Group Tabs
 * There are labelled tabs below the `Student Details` header. 
@@ -259,6 +264,8 @@ The following image displays the layout of the group tabs.
 
 The following image summarises the overall layout of TutorsContactsPro's User Interface(UI).
 ![UI layout](images/UILayout.png)
+
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-start'> Quick start <span>
 Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -293,11 +300,12 @@ Some example commands you can try:
 * [`mailtg g/TUT01`](#feature-mailtg) : Generates a prefilled email template containing the telegram link for 'TUT01', with the recipient field prefilled with students of 'TUT01'.
 
 
-5. Refer to the [Command Notes and Features](#feature-features) below for details of each command.
+Refer to the [Command Notes and Features](#feature-features) below for details of each command.
 
 [Table Of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-features'> Command Notes and Features <span>
 
@@ -346,6 +354,7 @@ Auto-capitalization will be handled. Extra/trailing/leading spaces will be remov
 > * Strictly enter only the `list` command. Any inputs after `list` will be ignored.
     E.g. When `list 44` is entered, the `44` input following `list` will be ignored and the `list` command will still be executed.
 
+<div style="page-break-after: always;"></div>
 
 ### <span id='feature-clear'> Clearing all entries : `clear` <span>
 
@@ -362,6 +371,8 @@ Format: `clear`
 Exits the program and your changes will be saved automatically.
 
 Format: `exit`
+
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-studentCommands'> Student Commands <span>
 
@@ -401,6 +412,8 @@ Examples:
 
 ![result for 'add Kendra Huetta'](images/addFeature.png)
 
+<div style="page-break-after: always;"></div>
+
 ### <span id='feature-edit'> Editing a student : `edit` <span>
 
 Edits an existing student you have selected. This way, you can always keep student details recorded up to date.
@@ -423,6 +436,8 @@ Examples:
 *  `edit 1 n/John e/john01@example.com` Edits the name of the first student to `John` and email to `john01@example.com` respectively.
 *  `edit 2 n/Betty tg/` Edits the name of the second student to be `Betty` and clears her telegram handle.
 
+<div style="page-break-after: always;"></div>
+
 ### <span id='feature-find'> Locating students by keyword: `find` <span>
 Finds students whose details include any of the specified keywords.
 You can find a student even if the keywords **match only partially**.
@@ -441,6 +456,7 @@ Examples:
 * `find Jo` returns students `John Doe` and `Johan Louis` as shown in the image below.
   ![result for 'find Jo'](images/findFeature.png)
 
+<div style="page-break-after: always;"></div>
 
 ### <span id='feature-filter'> Filtering students using group: `filter` <span>
 
@@ -462,6 +478,7 @@ Examples:
 
   ![result for 'filter TU'](images/filterFeature.png)
 
+<div style="page-break-after: always;"></div>
 
 ### <span id='feature-mark'> Marking students attendance by group week number: `mark` <span>
 
@@ -488,6 +505,8 @@ Examples:
 
   ![result for 'mark 1'](images/markAttendance.png)
 
+<div style="page-break-after: always;"></div>
+
 ### <span id='feature-delete'> Deleting a student : `delete` <span>
 
 Deletes your specified student from the current list.
@@ -504,7 +523,7 @@ Examples:
 * `list` followed by `delete 6` deletes the 6th student in TutorsContactsPro. In the example below, John Doe, the 6th student is deleted.
   ![result for 'delete 7'](images/deleteFeature.png)
 
-
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-groupCommands'> Group Commands <span>
 
@@ -530,6 +549,8 @@ Examples:
 * `addgroup g/TUT01` adds the group `TUT01` to TutorsContactsPro as shown in the image below.
   ![result for 'addgroup g/TUT01'](images/addgroupFeature.png)
 
+<div style="page-break-after: always;"></div>
+
 ### <span id='feature-editgroup'> Editing a group: `editgroup` <span>
 
 Edits an existing group in TutorsContactsPro, allowing you to add or edit the Telegram invite link assigned for each group so that you can remain up to date with each group's information.
@@ -549,6 +570,8 @@ Examples
 * `editgroup g/TUT01 tg/https://t.me/aafhkbwiu` adds the specified Telegram link `/https://t.me/aafhkbwiu` to group `TUT01` as shown in the image below.
   ![result for 'editgroup g/TUT01 tg/https://t.me/aafhkbwiu'](images/editgroupFeature.png)  
 
+<div style="page-break-after: always;"></div>
+
 ### <span id='feature-deletegroup'> Deleting a group: `deletegroup` <span>
 
 Deletes an existing group in TutorsContactsPro, so that you can start a fresh for the next teaching semester.
@@ -563,6 +586,8 @@ Examples:
 * `deletegroup g/LAB12` deletes the group `LAB12` from TutorsContactsPro.
 * `deletegroup g/TUT01` deletes the group `TUT01` from TutorsContactsPro as shown in the image below.
   ![result for 'deletegroup g/TUT01'](images/deletegroupFeature.png)
+
+<div style="page-break-after: always;"></div>
 
 ### <span id='feature-mail'> Generating email template : `mail` <span>
 
@@ -588,6 +613,7 @@ Examples:
 The image below shows the email template generated.
 ![result for 'mail LAB05'](images/mail_template.png)
 
+<div style="page-break-after: always;"></div>
 
 ### <span id='feature-mailtg'>  Generating email template for Telegram link: `mailtg` <span>
 
@@ -693,6 +719,7 @@ _coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-summary'> Command summary <span>
 
@@ -717,6 +744,7 @@ _coming soon ..._
 [Table Of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## <span id='feature-appendix-a-installing-java'> Appendix A: Installing Java <span>
 
