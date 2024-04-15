@@ -243,8 +243,6 @@ More is to be explained in [`help`](#feature-help) feature.
 * You can type in your command in the upper box.
 * And use the lower box to view the results of those commands.
 
-<div style="page-break-after: always;"></div>
-
 ### Student Panel
 * The Student panel is a panel that you can use to see the list of students stored in TutorsContactsPro.
 * You can see student's name, phone number, year of study, major, email address, group, Telegram handle and even whatever remarks that you have for each of them as needed!
